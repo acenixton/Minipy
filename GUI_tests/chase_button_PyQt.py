@@ -11,7 +11,7 @@ from random import *
 # def move_butt(button):
 #     button.move(randint(10,90),randint(10,90))
 
-class Fenster(QMainWindow):
+class Win(QMainWindow):
     
     def __init__(self):
         super().__init__()
@@ -19,6 +19,7 @@ class Fenster(QMainWindow):
         self.setWindowTitle("Catch the Button!")
         self.setGeometry(100,100,910,910)
         self.UIComponents()
+        # button should start in the middle
         self.setCentralWidget(self.button)
         self.show()
         
@@ -28,6 +29,7 @@ class Fenster(QMainWindow):
         self.button.setFixedSize(100,50)
         self.button.setStyleSheet("QPushButton:hover {color:pink; background:pink}")
 
+    # uses css-style syntax to change how the button looks
     def change_color(self):
         colors = ["green","blue","lime","yellow","pink","orange","red","white"]
         light = ["lime","yellow","pink","orange","red","white"]
@@ -35,15 +37,14 @@ class Fenster(QMainWindow):
         self.button.setStyleSheet(f"background-color:{col}")
         if col in light:
             self.button.setStyleSheet(f"color:black; background-color:{col}")
-            
+    
+    # changes button's position and calls color change function       
     def move_button(self):
         self.button.move(randint(10,800),randint(10,800))
         self.change_color()
         
         
-        
 
-anwendung = QApplication(sys.argv)
-fenster = Fenster()
-   
-sys.exit(anwendung.exec())
+app = QApplication(sys.argv)
+window = Win()  
+sys.exit(app.exec())
