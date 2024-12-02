@@ -44,14 +44,30 @@ root = tk.Tk()
 root.geometry('800x800+500+100')
 root.resizable(0,0)
 # make sub-container so game board is centered
+board = tk.Frame(root)
+board.place(relx=0.5, rely=0.5, anchor=tk.CENTER)
 
 # each cell is a button, that changes it's symbol based on the turn it is clicked in
-one = tk.Button(root,width=w,height=h)
+one = tk.Button(board,width=w,height=h)
 one.grid(column=0,row=0,padx=10,pady=10)
-two = tk.Button(root,width=w,height=h)
+two = tk.Button(board,width=w,height=h)
 two.grid(column=1,row=0,padx=10,pady=10)
-three = tk.Button(root,width=w,height=h)
+three = tk.Button(board,width=w,height=h)
 three.grid(column=2,row=0,padx=10,pady=10)
+
+four = tk.Button(board,width=w,height=h)
+four.grid(column=0,row=1,padx=10,pady=10)
+five = tk.Button(board,width=w,height=h)
+five.grid(column=1,row=1,padx=10,pady=10)
+six = tk.Button(board,width=w,height=h)
+six.grid(column=2,row=1,padx=10,pady=10)
+
+seven = tk.Button(board,width=w,height=h)
+seven.grid(column=0,row=2,padx=10,pady=10)
+eight = tk.Button(board,width=w,height=h)
+eight.grid(column=1,row=2,padx=10,pady=10)
+nine = tk.Button(board,width=w,height=h)
+nine.grid(column=2,row=2,padx=10,pady=10)
 
 
 root.mainloop()
