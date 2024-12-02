@@ -2,30 +2,35 @@
 # A small GUI game, where the button moves every time it is pressed
 # This time with PyQt because tkinter is annoying
 
-
 import PyQt6.QtWidgets as wi
-from PyQt6.QtCore import QSize
 import sys
+from random import *
+
+width = 900
+height = 900
+bump = 140
+sx = width-bump
+sy = height-bump
 
 def jump():
-    
+    buJump.move(randint(bump,sx),randint(bump,sy))
+def end():
+    sys.exit()
         
 app = wi.QApplication(sys.argv)
 win = wi.QWidget()
-win.setGeometry(100,100,900,900)
+win.setGeometry(100,100,width,height)
+win.setWindowTitle("Chase the Button!")
 
 buJump = wi.QPushButton("jump")
-buJump.setFixedWidth(90)
+buJump.setFixedSize(100,50)
 buJump.clicked.connect(jump)
 
 layout = wi.QVBoxLayout(win)
 layout.addWidget(buJump)
 
-
-win.setContentsMargins(20,20,20,20)
-
+win.setContentsMargins(50,20,50,20)
 win.show()
-
 sys.exit(app.exec())
 
 
