@@ -14,8 +14,19 @@ sy = height-bump
 
 def jump():
     buJump.move(randint(bump,sx),randint(bump,sy))
+    change_color()
+    
 def end():
     sys.exit()
+    
+# uses css-style syntax to change how the button looks
+def change_color():
+    colors = ["green","blue","lime","yellow","pink","orange","red","white"]
+    light = ["lime","yellow","pink","orange","red","white"]
+    col = choice(colors)
+    buJump.setStyleSheet(f"background-color:{col}")
+    if col in light:
+        buJump.setStyleSheet(f"color:black; background-color:{col}")
         
 app = wi.QApplication(sys.argv)
 win = wi.QWidget()
