@@ -15,8 +15,10 @@ sy = height-bump
 def jump():
     buJump.move(randint(bump,sx),randint(bump,sy))
     change_color()
+    
 def end():
     sys.exit()
+    
 # uses css-style syntax to change how the button looks
 def change_color():
     colors = ["green","blue","lime","yellow","pink","orange","red","white"]
