@@ -9,11 +9,9 @@ from PyQt6.QtCore import Qt
 import sys
 from random import *
 from math import *
-from time import *
+from time import sleep
 
-GLOBAL_STYLE = """QPushButton[checkable="true"] {color: grey; background-color: white; font: bold 14px} 
-                    QPushButton[checkable="true"]:disabled {color: red}"""
-
+GLOBAL_STYLE = """QPushButton[checkable="true"] {color: grey; background-color: white; font: bold 14px}"""
 
 class Minefield(QWidget):
     def testpress(self):
@@ -23,15 +21,18 @@ class Minefield(QWidget):
            
     def bomb(self):
         bu = self.sender()
+        print(bu)
         bu.setEnabled(False)
         bu.setText("Boom")
+        bu.setStyleSheet("color:red")
         self.labl.setText("Boom")
-        #self.ende()
-    
-    def ende(self):
-        sleep(.5)
-        sys.exit()
         
+        self.ende()
+        
+    def ende(self,tic=.2):
+        sleep(tic)
+        self.close()
+    
     def __init__(self,butts):
         super().__init__()
         self.lay = QGridLayout(self)
@@ -43,7 +44,6 @@ class Minefield(QWidget):
         
         # adds specified amount of buttons
         for i in range(0,butts):
-            print(f"index: {i}, bombdex: {self.bombdex}")
             self.buttons.append(QPushButton(f"O"))
             self.buttons[i].setCheckable(True)
             self.buttons[i].setFixedSize(50,50)
@@ -55,11 +55,7 @@ class Minefield(QWidget):
             else:
                 self.buttons[i].toggled.connect(self.testpress)    
         self.buttongrid()
-        
-        
-       
-        
-        
+  
     # arranges the buttons into grid
     def buttongrid(self):
         # figures out how best to arrange the grid
