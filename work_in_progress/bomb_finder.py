@@ -11,7 +11,6 @@ from random import *
 from math import *
 from time import sleep
 
-
 GLOBAL_STYLE = """QPushButton[checkable="true"] {color: grey; background-color: white; font: bold 14px}"""
 
 class Minefield(QWidget):
@@ -80,7 +79,14 @@ class Minefield(QWidget):
         lbcol = int(col/2)
         self.lay.addWidget(self.labl,lbrow,lbcol)       
         self.labl.setAlignment(Qt.AlignmentFlag.AlignHCenter)
-    
+
+class Explosion(QWidget):
+    def __init__(self):
+        super().__init__()
+        boom = QLabel(self)
+        
+
+# main stuff   
 grid = 9
             
 app = QApplication(sys.argv)
