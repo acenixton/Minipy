@@ -28,7 +28,6 @@ def change_color():
     if col in light:
         buJump.setStyleSheet(f"color:black; background-color:{col}")
 
-style = QStyle()
       
 app = QApplication(sys.argv)
 win = QWidget()
