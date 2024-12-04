@@ -2,7 +2,7 @@
 # A small GUI game, where the button moves every time it is pressed
 # This time with PyQt because tkinter is annoying
 
-import PyQt6.QtWidgets as wi
+from PyQt6.QtWidgets import *
 import sys
 from random import *
 
@@ -27,20 +27,22 @@ def change_color():
     buJump.setStyleSheet(f"background-color:{col}")
     if col in light:
         buJump.setStyleSheet(f"color:black; background-color:{col}")
-        
-app = wi.QApplication(sys.argv)
-win = wi.QWidget()
-win.setGeometry(100,100,width,height)
+
+style = QStyle()
+      
+app = QApplication(sys.argv)
+win = QWidget()
+win.setBaseSize(width,height)
+win.setWindowOpacity(0.7)
+win.setStyle(style)
 win.setWindowTitle("Chase the Button!")
 
-buJump = wi.QPushButton("jump")
+buJump = QPushButton("jump",win)
 buJump.setFixedSize(100,50)
 buJump.clicked.connect(jump)
+buJump.move(850,875)
 
-layout = wi.QVBoxLayout(win)
-layout.addWidget(buJump)
-
-win.setContentsMargins(50,20,50,20)
+win.setContentsMargins(bump,bump,bump,bump)
 win.show()
 sys.exit(app.exec())
 
