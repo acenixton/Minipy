@@ -11,6 +11,7 @@ from random import *
 from math import *
 from time import sleep
 
+
 GLOBAL_STYLE = """QPushButton[checkable="true"] {color: grey; background-color: white; font: bold 14px}"""
 
 class Minefield(QWidget):
