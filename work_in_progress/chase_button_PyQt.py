@@ -3,6 +3,7 @@
 # This time with PyQt because tkinter is annoying
 
 import PyQt6.QtWidgets as wi
+from PyQt6.QtCore import *
 import sys
 from random import *
 
@@ -32,12 +33,13 @@ win = wi.QWidget()
 win.setGeometry(100,100,width,height)
 win.setWindowTitle("Chase the Button!")
 
-buJump = wi.QPushButton("jump")
+buJump = wi.QPushButton("jump",win)
 buJump.setFixedSize(100,50)
 buJump.clicked.connect(jump)
 
-layout = wi.QVBoxLayout(win)
+layout = wi.QVBoxLayout()
 layout.addWidget(buJump)
+win.setLayout(layout)
 
 win.setContentsMargins(50,20,50,20)
 win.show()
