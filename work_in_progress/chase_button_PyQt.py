@@ -24,9 +24,9 @@ def change_color():
     colors = ["green","blue","lime","yellow","pink","orange","red","white"]
     light = ["lime","yellow","pink","orange","red","white"]
     col = choice(colors)
-    buJump.setStyleSheet(f"background-color:{col}")
+    buJump.setStyleSheet(f"background:{col}")
     if col in light:
-        buJump.setStyleSheet(f"color:black; background-color:{col}")
+        buJump.setStyleSheet(f"color:black; background:{col}")
         
 app = wi.QApplication(sys.argv)
 win = wi.QWidget()
@@ -36,10 +36,7 @@ win.setWindowTitle("Chase the Button!")
 buJump = wi.QPushButton("jump",win)
 buJump.setFixedSize(100,50)
 buJump.clicked.connect(jump)
-
-layout = wi.QVBoxLayout()
-layout.addWidget(buJump)
-win.setLayout(layout)
+jump()
 
 win.setContentsMargins(50,20,50,20)
 win.show()
