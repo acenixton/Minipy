@@ -7,6 +7,4 @@ Projects so far:
 - Morse-code translator on command line (.py and .exe)
 - Button chasing game with GUI(.py and .exe)
 
-Currently working on:
-- Bomb finder game 
 
